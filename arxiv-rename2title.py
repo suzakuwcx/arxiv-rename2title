@@ -101,7 +101,7 @@ def pdf_rename(file, dry_run=False):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Rename arxiv pdf file to it's title name", epilog=textwrap.dedent(f'''
+    parser = argparse.ArgumentParser(description="Rename arxiv pdf file to its title name", epilog=textwrap.dedent(f'''
         Example: 
                                                                                                                     
             {sys.argv[0]} <path/to/pdf>             rename target pdf
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     '''), formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument('path', metavar='path', type=str, nargs='+',
-                        help='File name or directory to operate, suggest multiple target')
+                        help='File name or directory to operate, support multiple target')
     parser.add_argument('-n', '--dry-run', action='store_true',
                         help="Don't actually do anything, just show what would be done")
 
