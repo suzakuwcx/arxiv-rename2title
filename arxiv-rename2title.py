@@ -56,6 +56,7 @@ def pdf2title(file: str):
             continue
 
         size = rtext['size']
+        flags = rtext['flags']
         break
 
     titles = []
@@ -63,7 +64,7 @@ def pdf2title(file: str):
     #
     # get a continuously rich text with same font size because of newline
     #
-    while rtext['size'] == size:
+    while rtext['size'] == size and rtext['flags'] == flags:
         titles.append(rtext['text'])
         i += 1
         rtext = rtexts[i]
@@ -73,7 +74,7 @@ def pdf2title(file: str):
     #
     # Remove special characters
     #
-    chars = re.findall(r'(:| )', title)
+    chars = re.findall(r'(:| |,)', title)
 
     for char in chars:
         title = title.replace(char, '-', 1)
