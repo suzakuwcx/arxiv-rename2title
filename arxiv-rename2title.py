@@ -127,7 +127,8 @@ if __name__ == "__main__":
             pdf_rename(uri, args.dry_run)
         elif os.path.isdir(uri):
             for file in glob(os.path.join(uri, "*.pdf")):
-                pdf_rename(file, args.dry_run)
+                if re.fullmatch(r'^\d{4}\.\d+v?\d*\.pdf', os.path.basename(file)) is not None:
+                    pdf_rename(file, args.dry_run)
 
         else:
             print(f"Unknown file: '{uri}', skip", file=sys.stderr)
