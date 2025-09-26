@@ -101,7 +101,7 @@ def pdf_rename(file, dry_run=False):
         os.rename(file, target)
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Rename arxiv pdf file to its title name", epilog=textwrap.dedent(f'''
         Example: 
                                                                                                                     
